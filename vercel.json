@@ -1,13 +1,22 @@
 {
-  "experimentalServices": {
-    "frontend": {
-      "root": "frontend",
-      "routePrefix": "/*",
-      "framework": "vite"
+  "builds": [
+    {
+      "src": "backend/spotter/wsgi.py",
+      "use": "@vercel/python"
     },
-    "backend": {
-      "root": "backend",
-      "routePrefix": "/_backend"
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/vite"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/spotter/wsgi.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ]
 }
