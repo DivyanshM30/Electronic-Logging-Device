@@ -84,6 +84,10 @@ export default function App() {
           )}
 
           {tripData && <TripSummary tripData={tripData} />}
+          
+          <div style={{ marginTop: 'auto', paddingTop: '24px', paddingBottom: '8px', textAlign: 'center', fontSize: '0.75rem', color: 'var(--color-text-dim)', letterSpacing: '0.02em' }}>
+            Created by <span style={{ color: 'var(--color-text)', fontWeight: 500 }}>Divyansh Mishra</span>
+          </div>
         </aside>
 
         {/* Content */}
